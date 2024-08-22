@@ -42,7 +42,7 @@ Requerimientos funcionales: lo que tiene que hacer
 - Tiene que haber una opcion para mandar los datos que estamos viendo por mail. Mediante  un boton donde ingresamos el mail y apretamos enviar. Con JS vamos a hacer que se envie por mail lo que quiera el usuaria (lo que este en la pantalla: una cotizacion, una tabla, etc)
 - Para cambiar de pantalla tiene que haber un menu, (puede estar arriba izq derecha, flotante, etc) en el mismo se debe poder identificar en qué pagina estoy parado, si estoy en la home tiene que tener un color diferente, o algo... Si estoy en cotizacion historica resaltar esta parte y la home vuelve a la normalidad. 
 - En todas las paginas al pie: nombre de los integrantes, de la materia, de la carrera, y de la utn. Hacer referencia que los datos consultados son buscados en la API externa 
-Requerimientos no funcionales del sitio web:
+##### Requerimientos no funcionales del sitio web:
 - Debe ser responsivo
 - No debe tener usuario ni contraseñas
 - Cada vez que haga algo el sitio web debe durar menos de 0.5s 
