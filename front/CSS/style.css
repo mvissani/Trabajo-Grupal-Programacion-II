@@ -1,17 +1,23 @@
-
-body{
-    background-color: rgb(109, 111, 108);
+body {
+  background-color: rgb(109, 111, 108);
 }
 
-div{
-    background-color: rgb(226, 238, 188);
+div {
+  background-color: rgb(226, 238, 188);
 }
 
-.container{
- background-color: rgb(63, 85, 69);
- display: flex;
- justify-content: space-around;
-
+.container {
+  background-color: rgb(63, 85, 69);
+  display: flex;
+  justify-content: space-around;
 }
 
-
+table {
+  background-color: yellowgreen;
+}
+th {
+    background-color: azure;
+  }
+td {
+    background-color: azure;
+}
