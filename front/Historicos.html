@@ -8,20 +8,21 @@
     <header>
       <h1>HISTORIAL</h1>
       
-      <button class="button" onclick="window.location.href='Index.html'"> Cotizaciones</button>
-      <button class="button" onclick="window.location.href='Historicos.html'"> Historial</button>
+      <button class="menu" onclick="window.location.href='Index.html'"> Cotizaciones</button>
+      <button class="menu" onclick="window.location.href='Historicos.html'"> Historial</button>
     </header>
-    <div>
-      <select name="Año">
-        <option>2023</option>
-        <option>2022</option>
-        <option>2021</option>
-        <option>2020</option>
-      </select>
+    <div class="periodo">
+      <form >
+        <label for="fecha">Desde:</label>
+        <input type="date">
+        <label for="fecha">Hasta:</label>
+        <input type="date">
+        <input type="submit" value="Buscar" class="buscador">
+      </form>
     </div>
 
-    <div>
-      <h2>ENERO</h2>
+    <div class="valores">
+      <label class="mes">ENERO</label>
       <table border="3px">
         <tr>
           <th>Fecha</th>
@@ -45,7 +46,7 @@
         </tr>
       </table>
 
-      <h2>FEBRERO</h2>
+      <label class="mes">FEBRERO</label>
       <table border="3px">
         <tr>
           <th>Fecha</th>

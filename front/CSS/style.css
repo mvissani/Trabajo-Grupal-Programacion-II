@@ -20,6 +20,8 @@ footer {
   border:4px solid #000304;
   color: #000304;
   text-align: center;
+  width: 250px;
+  height: 300px;
 }
 .item h4 {
   margin: 10%;
@@ -27,15 +29,56 @@ footer {
 .container {
   display: flex;
   justify-content: space-around;
-  margin: 5%;
+  margin: 5px;
 }
 
 table {
-  background-color: yellowgreen;
+  display: flex;
+  background-color: #7bba99;
+  color:#000304;
 }
 th {
-    background-color: azure;
+    background-color: #cacaa0;
   }
 td {
-    background-color: azure;
+    background-color: #cacaa0;
+}
+.menu{
+  background-color: #1d1d1d;
+  color: #cacaa0;
+  width: 700px;
+  height: 50px;
+  font-size: xx-large;
+}
+
+.periodo {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  color: #7bba99;
+}
+
+.buscador {
+  background-color: #7bba99;
+  color: #000304;
+  border-radius: 50px;
+  border:3px solid #000304;
+}
+
+.buscador:hover{
+  background-color: #b2ffd7;
+}
+
+.menu:hover{
+  background-color: #393939;
+}
+
+.valores{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.mes {
+  margin-left: 20px;
 }
