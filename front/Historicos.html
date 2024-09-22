@@ -1,73 +1,79 @@
 <!DOCTYPE html>
+
 <html lang="es">
-  <head>
-    <title>Cotizacion del mercado</title>
-    <link rel="stylesheet" href="CSS/style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>HISTORIAL</h1>
+  
+<head>
+  <title> Cotización del Mercado </title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
 
-      <button class="menu" onclick="window.location.href='Index.html'">
-        Cotizaciones
-      </button>
-      <button class="menu" onclick="window.location.href='Historicos.html'">
-        Historial
-      </button>
-    </header>
-    <div class="periodo">
-      <form>
-        <label for="fecha">Desde:</label>
-        <input type="date" />
-        <label for="fecha">Hasta:</label>
-        <input type="date" />
-        <input type="submit" value="Buscar" class="buscador" />
-      </form>
+<body>
+  
+  <header>
+
+    <h1 class="titulo"> INICIO </h1>
+    
+    <div class="opciones">
+      <a href="index.html"> Cotizaciones </a> 
+      <a href="historicos.html"> Historial </a> 
     </div>
 
-    <div class="valores">
-      <div>
-        <label class="mes"> ENERO </label>
+  </header>
 
-        <table border="3px">
-          <tr>
-            <th>Fecha</th>
-            <th>Dolar Blue</th>
-            <th>Dolar Cripto</th>
-            <th>Dolar Tarjeta</th>
-          </tr>
+  <div class="periodo">
+    <form action="historicos.html" method="POST">
+      <p class="margen"> Desde: </p>
+      <input type="date" />
+      <p class="margen"> Hasta: </p>
+      <input type="date" />
+      <input type="submit" value="Buscar" class="buscador"/>
+    </form>
+  </div>
 
-          <tr>
-            <td>01-01-2023</td>
-            <td>980.02</td>
-            <td>992.05</td>
-            <td>1000.35</td>
-          </tr>
-
-          <tr>
-            <td>02-01-2023</td>
-            <td>980.02</td>
-            <td>992.05</td>
-            <td>1000.35</td>
-          </tr>
-        </table>
-      </div>
+  <div class="valores">    
+    <div>  
+      <p class="mes"> ENERO </p>
+      <table border="3px">
+        <tr>
+          <th> Fecha </th>
+          <th> Dolar Blue </th>
+          <th> Dolar Cripto </th>
+          <th> Dolar Tarjeta </th>
+        </tr>
+        <tr>
+          <td> 01/01/2023 </td>
+          <td> 980,02 </td>
+          <td> 992,05 </td>
+          <td> 1000,35 </td>
+        </tr>
+        <tr>
+          <td> 02/01/2023 </td>
+          <td> 980,02 </td>
+          <td> 992,05 </td>
+          <td> 1000,35 </td>
+        </tr>
+      </table>
     </div>
+  </div>
 
-    <div>
-      <h4>Enviar la informacion detallada a:</h4>
-      <input type="text" name="mail" size="25" />
-      <input type="submit" value="Enviar" class="buscador" />
-    </div>
-  </body>
-  <footer>
-    <h5>Programadores</h5>
-    <h5>
-      Angel Viola - Brenda Melian - Martina Vissani - Nahuel Nocilla -
-      Universidad Tecnologica Nacional - Tecnicatura universitaria en
-      programacion - Programacion II - REF API EXT
-    </h5>
-    <h5></h5>
-  </footer>
+  <div class="envioinfo">
+    <h4> Enviar la información detallada a: </h4>
+    <input placeholder="Ingrese su correo" type="text" name="mail" size="25" />
+  </div>
+  <form>
+    <input type="submit" value="Enviar" class="buscador" id="enviar"/>
+  </form>
+</body>
+
+<footer>
+
+  <div class="pie">
+    <p> Programadores: Brenda Melian - Nahuel Nocilla - Angel Viola - Martina Vissani </p>
+    <p> Universidad Tecnológica Nacional </p> 
+    <p> Tecnicatura Universitaria en Programación - Programación II  </p>
+    <p> REF API EXT </p>
+  </div>
+
+</footer>
+
 </html>
-
