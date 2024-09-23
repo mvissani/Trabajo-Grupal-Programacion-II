@@ -24,6 +24,15 @@ header{
 a {
   text-decoration: none;
   color: #7bba99;
+  border-radius: 10px;
+}
+
+a:hover {
+  background-color: rgb(29, 34, 35);
+} 
+
+.opciones .opcion-activa {
+  font-weight: bold;
 }
 
 /* BODY */
