@@ -12,6 +12,8 @@
 header{
   background-color: #000304;
   text-align: center;
+  width: fit-content(100%);
+  position: relative;
 }
 
 .titulo {
@@ -49,40 +51,37 @@ body {
 
 form {
   display: flex;
-  align-content: space-around;
-  flex-direction: column;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 input {
   border-radius: 10px;
+  margin-left: 10px;
 }
 
-
-.item {
+.small-container {
   background-color: #7bba99;
   border-radius: 20px;
   border: 4px solid #000304;
   color: #000304;
-  text-align: center;
   width: 250px;
-  height: 100%;
-  margin: 2px;
+  height: 90%;
+  margin: 10px;
+  align-self: center;
 }
 
-.item h4 {
-  margin: 10%;
-}
-
-.container {
+.small-container p {
   display: flex;
-  justify-content: space-around;
-  width: 100%;
-  height: 950px;
-  margin-top: 20px;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.big-container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 500px;
 }
 
 table {
@@ -109,9 +108,9 @@ td {
   font-size: xx-large;
 }
 
-.margen {
-  text-align: center;
-  margin-top: 10px;
+.fecha {
+  text-align: left;
+  padding-left: 20px;
 }
 
 .periodo {
@@ -127,7 +126,7 @@ td {
   color: #000304;
   border-radius: 50px;
   border: 3px solid #000304; 
-  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .buscador:hover {
@@ -153,10 +152,11 @@ td {
 .envioinfo {
   margin-top: 30px;
   text-align: center;
+  padding-left: 10px;
 }
 
 input#buscar.buscador {
-  margin-top: 5px;
+  margin-top: 20px;
   background-color: #7bba99;
   color: #000304;
   border-radius: 50px;
@@ -169,9 +169,10 @@ footer {
   background-color: #000304;
   text-align: center;
   padding: 10px;
-  width: 100%;
-  position: absolute;
-  top:100%;  
+  position: relative;
+  width: fit-content(100%);
+  top: 100%;  
+  margin-top: 5%;
 }
 
 .pie {

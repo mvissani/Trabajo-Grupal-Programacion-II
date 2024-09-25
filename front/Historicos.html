@@ -22,9 +22,9 @@
 
   <div class="periodo">
     <form action="historicos.html" method="POST">
-      <p class="margen"> Desde: </p>
+      <p class="fecha"> Desde: </p>
       <input type="date" />
-      <p class="margen"> Hasta: </p>
+      <p class="fecha"> Hasta: </p>
       <input type="date" />
       <input type="submit" value="Buscar" class="buscador"/>
     </form>
@@ -57,12 +57,13 @@
   </div>
 
   <div class="envioinfo">
-    <h4> Enviar la información detallada a: </h4>
-    <input placeholder="Ingrese su correo" type="text" name="mail" size="25" />
+    <form action="historicos.html" method="POST">
+      <h4> Enviar la información detallada a: </h4>
+      <input placeholder="Ingrese su correo" type="text" name="mail" size="25" />
+      <input type="submit" value="Enviar" class="buscador" id="enviar"/>
+    </form>
   </div>
-  <form>
-    <input type="submit" value="Enviar" class="buscador" id="enviar"/>
-  </form>
+
 </body>
 
 <footer>
