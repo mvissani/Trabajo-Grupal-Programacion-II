@@ -75,7 +75,9 @@ input {
 .small-container p {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 48px;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .big-container {
