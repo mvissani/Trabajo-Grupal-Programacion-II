@@ -61,6 +61,10 @@ input {
   margin-left: 10px;
 }
 
+.nombre-moneda {
+  font-style: oblique;
+}
+
 .small-container {
   background-color: #7bba99;
   border-radius: 20px;
