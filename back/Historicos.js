@@ -11,3 +11,20 @@ function agregarHistorico(nombre, venta, compra) {
     historico.querySelector(".historico-venta").innerHTML= venta
     monedas.appendChild(historico)
 };
+
+(function() {
+        emailjs.init("cVWZJPSvMYbM0Hwlg");
+    })();
+
+
+window.onload = function() {
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_3gfwajh', 'template_rut4dgr', this)
+            .then(() => {
+                console.log('SUCCESS!');
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+        });
+    }

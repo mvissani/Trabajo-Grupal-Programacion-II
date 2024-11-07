@@ -5,10 +5,11 @@
 <head>
   <title> Cotización del Mercado </title>
   <link rel="stylesheet" href="../CSS/style.css"/>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
-  
+
   <header>
 
     <img src="..\Images\DOLAR CONTANDO GIF MAQUINA.gif" alt="Logo" class="logoini">
@@ -53,13 +54,18 @@
   </div>
 
   <div class="envioinfo">
-    <form action="Historicos.html" method="POST">
-      <h4> Enviar la información detallada a: </h4>
-      <input placeholder="Ingrese su correo" type="text" name="mail" size="25" />
+    <form id="contact-form">
+      <h4>Formulario de Contacto: </h4>
+      <label> Nombre y Apellido </label>
+      <input type="text" name="from_name">
+      <label> Email </label>
+      <input type="email" name="from_email">
+      <label> Mensaje </label>
+      <input type="text" name="message">
       <input type="submit" value="Enviar" class="buscador" id="enviar"/>
     </form>
   </div>
-
+ 
 </body>
 
 <footer>
