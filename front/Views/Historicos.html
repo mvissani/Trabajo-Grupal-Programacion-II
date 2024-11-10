@@ -22,7 +22,7 @@
   </header>
 
   <div class="periodo">
-    <form action="Historicos.html" method="POST">
+    <form class="form-periodo" action="Historicos.html" method="POST">
       <p class="fecha"> Desde: </p>
       <input type="date" />
       <p class="fecha"> Hasta: </p>
@@ -53,18 +53,26 @@
     </div>
   </div>
 
-  <div class="envioinfo">
-    <form id="contact-form">
+   <div class="envioinfo">
+    <form class="form-contacto" id="contact-form">
       <h4>Formulario de Contacto: </h4>
-      <label> Nombre y Apellido </label>
-      <input type="text" name="from_name">
-      <label> Email </label>
-      <input type="email" name="from_email">
-      <label> Mensaje </label>
-      <input type="text" name="message">
+    
+      <div>
+        <label> Nombre y Apellido </label>
+        <input type="text" name="from_name">
+      </div>
+      <div>
+        <label> Email </label>
+        <input type="email" name="from_email">
+      </div>
+      <div>
+        <label> Mensaje </label>
+        <input type="text" name="message">
+      </div>
       <input type="submit" value="Enviar" class="buscador" id="enviar"/>
     </form>
   </div>
+ 
  
 </body>
 

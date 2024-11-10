@@ -3,8 +3,8 @@ let monedas = document.getElementsByClassName("big-container")[0];
 function agregarCotizacion(nombre, compra, venta) {
   var cotizacion = document.getElementsByClassName("small-container")[0].cloneNode(true)
     cotizacion.querySelector(".nombre-moneda").innerHTML= nombre
-    cotizacion.querySelector(".precio-compra").innerHTML= compra
-    cotizacion.querySelector(".precio-venta").innerHTML= venta
+    cotizacion.querySelector(".precio-compra").innerHTML= "$" + compra
+    cotizacion.querySelector(".precio-venta").innerHTML= "$" + venta
     monedas.appendChild(cotizacion)
   };
   
@@ -13,7 +13,7 @@ function agregarCotizacion(nombre, compra, venta) {
     monedas.removeChild(cotizacionVacia);
   } 
   
-  fetch("https://dolarapi.com/v1/cotizaciones")
+  fetch("http://localhost:5000/mis-cotizaciones")
     
     .then(response => response.json())
     
@@ -25,22 +25,22 @@ function agregarCotizacion(nombre, compra, venta) {
     .then(borrarCotizacionVacia);
   
 
-    (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "YOUR_PUBLIC_KEY",
-            });
-        })();
+    // (function() {
+    //         // https://dashboard.emailjs.com/admin/account
+    //         emailjs.init({
+    //           publicKey: "YOUR_PUBLIC_KEY",
+    //         });
+    //     })();
 
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('contact_service', 'contact_form', this)
-                    .then(() => {
-                        console.log('SUCCESS!');
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
+        // window.onload = function() {
+        //     document.getElementById('contact-form').addEventListener('submit', function(event) {
+        //         event.preventDefault();
+        //         // these IDs from the previous steps
+        //         emailjs.sendForm('contact_service', 'contact_form', this)
+        //             .then(() => {
+        //                 console.log('SUCCESS!');
+        //             }, (error) => {
+        //                 console.log('FAILED...', error);
+        //             });
+        //     });
+        // }

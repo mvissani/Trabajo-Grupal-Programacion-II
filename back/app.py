@@ -1,4 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask
+from flask_cors import CORS
+import requests
 
 class Moneda:
     def __init__(self, nombre):
@@ -45,13 +47,18 @@ class Cotizacion():
         return f'La cotizacion es: compra {self.valor_compra}, venta {self.valor_venta}, actualizacion {self.actualizacion}'
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/Cotizaciones/<int:moneda>", methods=["GET"]) 
-def get_cotizaciones(moneda):
+@app.route("/mis-cotizaciones", methods=["GET"]) 
+def get_cotizaciones():
     moneda1 = Tipo("oficial", "dolar")
 
-    return jsonify({"moneda": "datosdelamoneda"}), 200
-    return jsonify({"error": "Moneda no encontrada"}), 404
+    response = requests.get("https://dolarapi.com/v1/cotizaciones")
+    
+    return response.json(), 200
+
+    #return jsonify({"moneda": "datosdelamoneda"}), 200
+    #return jsonify({"error": "Moneda no encontrada"}), 404
     
 app.run(debug=True)
 
