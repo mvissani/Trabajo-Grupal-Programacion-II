@@ -22,47 +22,62 @@
 
   </header>
 
-  <div class="dolar">
-  <label> Dolar: </label> 
-      <select class="tipo">
-        <option value="oficial">Oficial</option>
-        <option value="blue">Blue</option>
-        <option value="bolsa">Bolsa</option>
-        <option value="contadoconliqui">Contado con liqui</option>
-        <option value="cripto">Cripto</option>
-        <option value="mayorista">Mayorista</option>
-        <option value="solidario">Solidario</option>
-        <option value="turista">Turista</option>
-    </select>
-  </div>
 
-  <div class="periodo">
-    <form class="form-periodo" action="Historicos.html" method="POST">
-      <p class="fecha"> Desde: </p>
-      <input type="date" />
-      <p class="fecha"> Hasta: </p>
-      <input type="date" />
-      <input type="submit" value="Buscar" class="buscador"/>
-    </form>
+      
+        <form class="form-periodo" action="Historicos.html" method="POST" id="form-periodo">
+            <div class="dolar">
+              <label> Dolar: </label> 
+                  <select class="tipo" id="tipo-dolar">
+                    <option value="oficial">Oficial</option>
+                    <option value="blue">Blue</option>
+                    <option value="bolsa">Bolsa</option>
+                    <option value="contadoconliqui">Contado con liqui</option>
+                    <option value="cripto">Cripto</option>
+                    <option value="mayorista">Mayorista</option>
+                    <option value="solidario">Solidario</option>
+                    <option value="turista">Turista</option>
+                </select>
+              </div>
+              
+              <div class="periodo">
+              <p class="fecha">Desde:</p>
+              <input type="date" id="fecha-desde" name="fecha_desde" />
+              
+              <p class="fecha">Hasta:</p>
+              <input type="date" id="fecha-hasta" name="fecha_hasta" />
+              </div>
+
+              <input type="submit" value="Buscar" class="buscador" onclick="obtenerDatosForm(event)">
+        </form>
+    </div>
+   
   
+
 
   <div class="valores">    
     <div>  
       
-      <table class="tabla-valores" border="4px">
+      <table class="tabla-valores" id="tabla-valores" border="4px">
     
-        <tr>
-          <th> FECHA  </th>
-          <th> PRECIO COMPRA </th>
-          <th> PRECIO VENTA </th>
-        </tr>
+        <thead>
+          <tr>
+            <th> FECHA  </th>
+            <th> PRECIO COMPRA </th>
+            <th> PRECIO VENTA </th>
+          </tr>
+        </thead>
 
-        <tr>
-          <td class="nombre-dolar"> B1 </td>
-          <td class="historico-compra"> $ </td>
-          <td class="historico-venta"> $ </td>
-        </tr>
+        <tbody>
+          <!-- Aquí se agregarán las filas -->
+        </tbody>
 
+        <!--
+        <tr class="fila-dolar">
+          <td class="fecha"> B1 </td>
+          <td class="precio-compra"> $ </td>
+          <td class="precio-venta"> $ </td>
+        </tr> -->
+      
       </table>
     </div>
   </div>

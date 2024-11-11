@@ -133,6 +133,7 @@ table {
   display: flex;
   background-color: #7bba99;
   color: #000304;
+  flex-direction: column;
 }
 
 th {
