@@ -3,7 +3,8 @@
 <html lang="es">
   
 <head>
-  <title> Cotización del Mercado </title>
+  <title> Historicos: "El Comandante" </title>
+  <link rel="icon" href="..\Images\icono.png" type="image/png">
   <link rel="stylesheet" href="../CSS/style.css"/>
   <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
@@ -26,7 +27,7 @@
       <select class="tipo">
         <option value="oficial">Oficial</option>
         <option value="blue">Blue</option>
-        <option value="oolsa">Bolsa</option>
+        <option value="bolsa">Bolsa</option>
         <option value="contadoconliqui">Contado con liqui</option>
         <option value="cripto">Cripto</option>
         <option value="mayorista">Mayorista</option>
@@ -66,9 +67,14 @@
     </div>
   </div>
 
+  <div class="mostrar-grafico">
+    <label> Grafico </label>
+    <input type="checkbox">
+  </div>
+
   <div class="grafico">
     <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-  </div>
+    </div>
   
   <div class="envioinfo">
     <form class="form-contacto" id="contact-form" action="#" method="POST">
@@ -93,6 +99,21 @@
             <button type="submit" id="enviar" class="btn-submit">Enviar</button>
         </div>
     </form>
+  </div>
+
+<div class="envioinfo">
+      <form class="form-contacto" id="contact-form" action="#" method="POST">
+          <h4> Recibir esta informacion </h4>
+  
+          <div class="form-group">
+              <label for="from_email">Email</label>
+              <input type="email" id="from_email" name="from_email" placeholder="Ejemplo@dominio.com" required>
+          </div>
+  
+          <div class="form-group">
+              <button type="submit" id="enviar" class="btn-submit">Enviar</button>
+          </div>
+      </form>
 </div>
  
  
@@ -109,9 +130,7 @@
 
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="../.././BACK/Historicos.js"></script>
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
 
 </html>
