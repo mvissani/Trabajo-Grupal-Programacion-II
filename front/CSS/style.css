@@ -41,7 +41,7 @@ a:hover {
 
 .opciones .opcion-activa {
   font-weight: bold;
-}
+ }
 
 /* BODY */
 
@@ -141,7 +141,6 @@ td {
   display: flex;
   align-content: center;
   flex-direction: column;
-  margin-top: 10px;
   color: #7bba99;
 }
 
@@ -174,17 +173,71 @@ td {
 }
 
 .envioinfo {
-  margin-top: 30px;
-  text-align: center;
-  padding-left: 10px;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: left;
 }
 
-input#buscar.buscador {
-  margin-top: 20px;
-  background-color: #7bba99;
-  color: #000304;
-  border-radius: 50px;
-  border: 3px solid #000304;
+.form-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input, .form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  outline-color: #3498db;
+}
+
+.btn-submit {
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #2980b9;
+}
+
+.btn-submit:active {
+  background-color: #1d6fa5;
+}
+
+.dolar
+ {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.tipo{
+  margin-left: 15px;
 }
 
 /* FOOTER */

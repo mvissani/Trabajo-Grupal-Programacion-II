@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  
+<head>
+  <title> Cotización del Mercado </title>
+  <link rel="stylesheet" href="../CSS/style.css"/>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+
+<body>
+
+  <header>
+
+    <img src="..\Images\DOLAR CONTANDO GIF MAQUINA.gif" alt="Logo" class="logoini">
+    
+    <div class="opciones">
+      <a href="Cotizaciones.html"> Cotizaciones </a> 
+      <a class="opcion-activa" href="Historicos.html"> Historial </a> 
+    </div>
+
+  </header>
+
+  <div class="dolar">
+  <label> Dolar: </label> 
+      <select class="tipo">
+        <option value="oficial">Oficial</option>
+        <option value="blue">Blue</option>
+        <option value="oolsa">Bolsa</option>
+        <option value="contadoconliqui">Contado con liqui</option>
+        <option value="cripto">Cripto</option>
+        <option value="mayorista">Mayorista</option>
+        <option value="solidario">Solidario</option>
+        <option value="turista">Turista</option>
+    </select>
+  </div>
+
+  <div class="periodo">
+    <form class="form-periodo" action="Historicos.html" method="POST">
+      <p class="fecha"> Desde: </p>
+      <input type="date" />
+      <p class="fecha"> Hasta: </p>
+      <input type="date" />
+      <input type="submit" value="Buscar" class="buscador"/>
+    </form>
+  
+
+  <div class="valores">    
+    <div>  
+      
+      <table class="tabla-valores" border="4px">
+    
+        <tr>
+          <th> FECHA  </th>
+          <th> PRECIO COMPRA </th>
+          <th> PRECIO VENTA </th>
+        </tr>
+
+        <tr>
+          <td class="nombre-dolar"> B1 </td>
+          <td class="historico-compra"> $ </td>
+          <td class="historico-venta"> $ </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+
+  <div class="grafico">
+    <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+  </div>
+  
+  <div class="envioinfo">
+    <form class="form-contacto" id="contact-form" action="#" method="POST">
+        <h4>Formulario de Contacto</h4>
+
+        <div class="form-group">
+            <label for="from_name">Nombre y Apellido</label>
+            <input type="text" id="from_name" name="from_name" placeholder="Ingresa tu nombre completo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="from_email">Email</label>
+            <input type="email" id="from_email" name="from_email" placeholder="Ejemplo@dominio.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="enviar" class="btn-submit">Enviar</button>
+        </div>
+    </form>
+</div>
+ 
+ 
+</body>
+
+<footer>
+
+  <div class="pie">
+    <p> Programadores: Brenda Melian - Nahuel Nocilla - Martina Vissani </p>
+    <p> Universidad Tecnológica Nacional </p> 
+    <p> Tecnicatura Universitaria en Programación - Programación II  </p>
+    <p> REF API EXT </p>
+  </div>
+
+</footer>
+
+<script src="../.././BACK/Historicos.js"></script>
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+</html>
