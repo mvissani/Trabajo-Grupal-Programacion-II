@@ -1,12 +1,3 @@
-let monedas = document.getElementsByClassName("valores")[0];
-
-function agregarHistorico(nombre, venta, compra) {
-    var historico = document.getElementsByClassName("tabla-valores")[0].cloneNode(true)
-    historico.querySelector(".nombre-dolar").innerHTML= nombre
-    historico.querySelector(".historico-compra").innerHTML= compra
-    historico.querySelector(".historico-venta").innerHTML= venta
-    monedas.appendChild(historico)
-};
 
 (function() {
         emailjs.init("cVWZJPSvMYbM0Hwlg");
@@ -82,8 +73,6 @@ window.onload = function() {
 
 
 function armarFila(fecha, compra, venta){
-
-
     const tabla = document.getElementById("tabla-valores").getElementsByTagName("tbody")[0];
     
     // Crear una nueva fila (tr) con la clase "fila-dolar"
