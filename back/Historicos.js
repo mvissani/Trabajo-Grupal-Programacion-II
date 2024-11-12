@@ -82,20 +82,19 @@ function armarFila(fecha, compra, venta){
     // Crear la primera celda (td) con clase "fecha" y contenido "B1"
     const celda1 = document.createElement('td');
     celda1.classList.add('fecha');  // Asignar la clase "fecha" a la celda
-   
-     celda1.innerText=fecha
+    celda1.innerText=fecha
     
 
     // Crear la segunda celda (td) con clase "precio-compra" y contenido "$"
     const celda2 = document.createElement('td');
     celda2.classList.add('precio-compra');  // Asignar la clase "precio-compra" a la celda
-    celda2.innerText=compra
+    celda2.innerText= "$" + compra
    
 
     // Crear la tercera celda (td) con clase "precio-venta" y contenido "$"
     const celda3 = document.createElement('td');
     celda3.classList.add('precio-venta');  // Asignar la clase "precio-venta" a la celda
-    celda3.innerText=venta
+    celda3.innerText="$" + venta
     
 
     // Agregar las celdas a la fila
