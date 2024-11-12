@@ -1,20 +1,63 @@
-
-(function() {
-        emailjs.init("cVWZJPSvMYbM0Hwlg");
-    })();
-
+emailjs.init("EoLKxlYYQCCZ-ON8B");
 
 window.onload = function() {
+    enviaMailDelUsuario();
+    enviaCotizacionesAlUsuario();
+}
+    
+function enviaMailDelUsuario() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        emailjs.sendForm('service_3gfwajh', 'template_rut4dgr', this)
-            .then(() => {
-                console.log('SUCCESS!');
-            }, (error) => {
-                console.log('FAILED...', error);
-            });
+        emailjs.sendForm('service_gmail_1', 'template_email_1', this)
+            .then(() => {console.log('SUCCESS!');}, 
+                (error) => {console.log('FAILED...', error);});
         });
-    }
+
+}
+
+function enviaCotizacionesAlUsuario() {
+    document.getElementById('contact-form1').addEventListener('submit', function(event) {
+        event.preventDefault();  // Evitamos el envío tradicional del formulario
+        enviarCotizaciones(event);  // Llamamos a la función que maneja el envío del correo
+    });
+}
+
+function enviarCotizaciones(event) {
+    event.preventDefault();  // Evitamos el envío tradicional del formulario
+
+    // Obtenemos el correo que el usuario ingresó en el formulario
+    const fromEmail = document.getElementById('from_email_1').value;
+    console.log(fromEmail);  // Verificamos que estamos obteniendo el correo correctamente
+
+    // Obtenemos las filas de la tabla de cotizaciones
+    const filas = document.querySelectorAll('#tabla-valores tbody .fila-dolar');
+    
+    // Inicializamos un array vacío para guardar los datos
+    let cotizaciones = [];
+
+    // Recorremos cada fila y obtenemos los datos
+    filas.forEach(fila => {
+        const fecha = fila.querySelector('.fecha').textContent;  // Fecha de la cotización
+        const compra = fila.querySelector('.precio-compra').textContent;  // Precio compra
+        const venta = fila.querySelector('.precio-venta').textContent;  // Precio venta
+
+        // Añadimos los datos a nuestro array
+        cotizaciones.push({ fecha, compra, venta });
+    });
+
+    // Enviamos el correo con la información de las cotizaciones
+    emailjs.send('service_gmail_1', 'template_formulario', { 
+        from_email: fromEmail,  // Enviamos el correo del usuario
+        cotizaciones: JSON.stringify(cotizaciones)  // Enviamos las cotizaciones como una cadena JSON
+    }).then(function(response) {
+        console.log('SUCCESS!', response);
+        alert('Cotizaciones enviadas exitosamente!');
+    }, function(error) {
+        console.log('FAILED...', error);
+        alert('Hubo un error al enviar las cotizaciones.');
+    });
+}
+
 
     const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
     const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
