@@ -10,17 +10,18 @@
 </head>
 
 <body>
+  <div class="all-content">
 
-  <header>
+    <header>
 
-    <img src="..\Images\DOLAR CONTANDO GIF MAQUINA.gif" alt="Logo" class="logoini">
-    
-    <div class="opciones">
-      <a href="Cotizaciones.html"> Cotizaciones </a> 
-      <a class="opcion-activa" href="Historicos.html"> Historial </a> 
-    </div>
+      <img src="..\Images\DOLAR CONTANDO GIF MAQUINA.gif" alt="Logo" class="logoini">
+      
+      <div class="opciones">
+        <a href="Cotizaciones.html"> Cotizaciones </a> 
+        <a class="opcion-activa" href="Historicos.html"> Historial </a> 
+      </div>
 
-  </header>
+    </header>
 
   
       <form class="form-periodo" action="Historicos.html" method="POST" id="form-periodo">
@@ -50,93 +51,92 @@
       </form>
       
       
-<div class="historico-grafico-tabla">
-      <div class="valores">    
-        <div>  
+      <div class="historico-grafico-tabla">
+        <div class="valores">    
+          <div>  
           
-          <table class="tabla-valores" id="tabla-valores" border="4px">
-        
-            <thead>
-              <tr>
-                <th> FECHA  </th>
-                <th> PRECIO COMPRA </th>
-                <th> PRECIO VENTA </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <!-- Aquí se agregarán las filas -->
-            </tbody>
-
-            <!--
-            <tr class="fila-dolar">
-              <td class="fecha"> B1 </td>
-              <td class="precio-compra"> $ </td>
-              <td class="precio-venta"> $ </td>
-            </tr> -->
+            <table class="tabla-valores" id="tabla-valores" border="4px">
           
-          </table>
+              <thead>
+                <tr>
+                  <th> FECHA  </th>
+                  <th> PRECIO COMPRA </th>
+                  <th> PRECIO VENTA </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Aquí se agregarán las filas -->
+              </tbody>
+
+              <!--
+              <tr class="fila-dolar">
+                <td class="fecha"> B1 </td>
+                <td class="precio-compra"> $ </td>
+                <td class="precio-venta"> $ </td>
+              </tr> -->
+            
+            </table>
+          </div>
         </div>
-      </div>
 
-      <div id="grafico" class="grafico">
-        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-      </div>
+        <div id="grafico" class="grafico">
+          <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        </div>
 
-      <div class="envioinfo">
-        <form class="form-contacto" id="contact-form1" action="#" method="POST">
-            <h4> Recibir esta informacion </h4>
-            <div class="form-group">
-                <label for="from_email"></label>
-                <input type="email" id="from_email_1" name="from_email" placeholder="Ejemplo@dominio.com" required>
-            </div>
-    
-            <div class="form-group">
-                <input type="submit" value="Enviar" id="enviar" class="btn-submit">
-            </div>
-        </form>
-  </div>
+        <div class="envioinfo">
+          <form class="form-contacto" id="contact-form1" action="#" method="POST">
+              <h4> Recibir esta informacion </h4>
+              <div class="form-group">
+                  <label for="from_email"></label>
+                  <input type="email" id="from_email_1" name="from_email" placeholder="Ejemplo@dominio.com" required>
+              </div>
       
-  </div>
+              <div class="form-group">
+                  <input type="submit" value="Enviar" id="enviar" class="btn-submit">
+              </div>
+          </form>
+      </div>
+      
+    </div>
 
-  <div class="envioinfo">
-    <form class="form-contacto" id="contact-form" action="#" method="POST">
-        <h4>Formulario de Contacto</h4>
+    <div class="envioinfo">
+      <form class="form-contacto" id="contact-form" action="#" method="POST">
+          <h4>Formulario de Contacto</h4>
 
-        <div class="form-group">
-            <label for="from_name"></label>
-            <input type="text" id="from_name" name="from_name" placeholder="Ingresa tu nombre completo" required>
-        </div>
+          <div class="form-group">
+              <label for="from_name"></label>
+              <input type="text" id="from_name" name="from_name" placeholder="Ingresa tu nombre completo" required>
+          </div>
 
-        <div class="form-group">
-            <label for="from_email"></label>
-            <input type="email" id="from_email" name="from_email" placeholder="Ejemplo@dominio.com" required>
-        </div>
+          <div class="form-group">
+              <label for="from_email"></label>
+              <input type="email" id="from_email" name="from_email" placeholder="Ejemplo@dominio.com" required>
+          </div>
 
-        <div class="form-group">
-            <label for="message"></label>
-            <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
-        </div>
+          <div class="form-group">
+              <label for="message"></label>
+              <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
+          </div>
 
-        <div class="form-group">
-            <button type="submit" id="enviar" class="btn-submit">Enviar</button>
-        </div>
-    </form>
-  </div>
- 
- 
+          <div class="form-group">
+              <button type="submit" id="enviar" class="btn-submit">Enviar</button>
+          </div>
+      </form>
+    </div>
+  </div>  
+    <footer>
+      <div class="pie">
+        <p> Programadores: Brenda Melian - Nahuel Nocilla - Martina Vissani </p>
+        <p> Universidad Tecnológica Nacional </p> 
+        <p> Tecnicatura Universitaria en Programación - Programación II  </p>
+        <p> https://dolarapi.com/ </p>
+      </div>
+    </footer>
+
 </body>
 
-<footer>
 
-  <div class="pie">
-    <p> Programadores: Brenda Melian - Nahuel Nocilla - Martina Vissani </p>
-    <p> Universidad Tecnológica Nacional </p> 
-    <p> Tecnicatura Universitaria en Programación - Programación II  </p>
-    <p> REF API EXT </p>
-  </div>
-
-</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <script src="../.././BACK/Historicos.js"></script>
