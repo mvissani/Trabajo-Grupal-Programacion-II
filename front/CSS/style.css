@@ -45,11 +45,13 @@ a:hover {
 
 /* BODY */
 
+
 .dolar
  {
-  margin-top: 15px;
+  align-content: center;
   display: flex;
   justify-content: center;
+  color: #7bba99;
 }
 
 .tipo{
@@ -68,10 +70,8 @@ body {
 .grafico {
   margin: 0 auto;
   background-color: #ccc;
-}
+  border-radius: 10px;
 
-.mostrar-graf {
- color: blue;
 }
 
 .form-contacto {
@@ -93,6 +93,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 input {
@@ -105,9 +106,9 @@ input {
 }
 
 .small-container {
-  background-color: #7bba99;
+  background-color: #ccc;
   border-radius: 20px;
-  border: 4px solid #000304;
+  border: 4px solid rgb(2, 38, 62);
   color: #000304;
   width: 250px;
   height: 90%;
@@ -130,20 +131,40 @@ input {
 }
 
 table {
-  display: flex;
-  background-color: #7bba99;
+  table-layout: fixed;
+  border-collapse: collapse;
   color: #000304;
   flex-direction: column;
+  margin: 20px;
 }
 
 th {
-  background-color: #cacaa0;
+  background-color:  #ccc;
   text-align: center;
+  padding: 8px;
+  border: 4px solid rgb(2, 38, 62)
 }
 
 td {
-  background-color: #cacaa0;
+  background-color:  #ccc;
   text-align: center;
+  padding: 8px;
+  border: 4px solid rgb(2, 38, 62)
+}
+
+.tabla-valores th:nth-child(1),
+.tabla-valores td:nth-child(1) {
+  width: 40%;  /* Ancho del primer columna (FECHA) */
+}
+
+.tabla-valores th:nth-child(2),
+.tabla-valores td:nth-child(2) {
+  width: 30%;  /* Ancho del segundo columna (PRECIO COMPRA) */
+}
+
+.tabla-valores th:nth-child(3),
+.tabla-valores td:nth-child(3) {
+  width: 30%;  /* Ancho del tercer columna (PRECIO VENTA) */
 }
 
 .menu {
@@ -162,7 +183,7 @@ td {
 .periodo {
   display: flex;
   align-content: center;
-  flex-direction: column;
+ /* flex-direction: column;*/
   color: #7bba99;
 }
 
@@ -185,6 +206,7 @@ td {
 h4 {
   color: black;
 }
+
 .valores {
   display: flex;
   justify-content: center;
