@@ -70,10 +70,11 @@ body {
 .grafico {
   margin: 0 auto;
   background-color: #ccc;
-  border-radius: 10px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }
-
 .form-contacto {
   display: flex;
   align-items:center;
@@ -136,6 +137,7 @@ table {
   color: #000304;
   flex-direction: column;
   margin: 20px;
+  width: 100%;
 }
 
 th {
@@ -183,7 +185,6 @@ td {
 .periodo {
   display: flex;
   align-content: center;
- /* flex-direction: column;*/
   color: #7bba99;
 }
 
@@ -229,6 +230,7 @@ h4 {
   text-align: left;
 }
 
+
 .form-contacto {
   display: flex;
   flex-direction: column;
@@ -238,6 +240,7 @@ h4 {
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
 .form-group label {
@@ -251,6 +254,7 @@ h4 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 14px;
+  width: 90%; 
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -289,3 +293,24 @@ footer {
   font-size: 14px;
 }
 
+/**/
+
+.historico-grafico-tabla {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+  gap: 20px; /* Espacio entre las columnas */
+  align-items: start; /* Alineación de los elementos al inicio de la fila */
+  padding: 20px;
+}
+
+
+/* Responsividad para pantallas pequeñas */
+/* @media (max-width: 768px) {
+  .historico-grafico-tabla {
+    grid-template-columns: 1fr; /* Apila los elementos en una sola columna en pantallas pequeñas */
+  /*}/*
+
+  #myChart {
+    max-width: 100%; /* Asegura que el gráfico ocupe todo el ancho disponible */
+ /* }
+} 
