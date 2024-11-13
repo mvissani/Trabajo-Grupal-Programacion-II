@@ -68,7 +68,7 @@ body {
 }
 
 .grafico {
-  margin: 0 auto;
+  margin: 20px;
   background-color: #ccc;
   display: flex;
   justify-content: center;

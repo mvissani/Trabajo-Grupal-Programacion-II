@@ -107,7 +107,9 @@ function enviarCotizaciones(event) {
 }
 
 function armaGrafico(data){
-
+    xValues.length = 0; // Limpiar el array xValues
+    yValues.length = 0; // Limpiar el array yValues
+    
     // Iterar sobre las cotizaciones y extraer las fechas y los valores de venta
     data.forEach(cotizacion => { //Iteramos data, que es lo que devolvió el backend
         xValues.push(cotizacion.fecha);
