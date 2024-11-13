@@ -1,5 +1,60 @@
 emailjs.init("EoLKxlYYQCCZ-ON8B");
 
+var xValues = []
+var yValues = []
+
+var chart = new Chart("myChart", {
+    type: "line",  
+    data: {
+      labels: xValues,  
+      datasets: [{
+        label: "Evolucion del dolar en pesos argentinos",  
+        backgroundColor: "rgba(0,0,255,0.1)",  
+        borderColor: "rgba(0,0,255,1.0)",  
+        borderWidth: 2,  
+        data: yValues,  
+        fill: true  
+      }]
+    },
+    options: {
+      responsive: true,  
+      maintainAspectRatio: false,  
+      scales: {
+        x: {
+          beginAtZero: true,  
+          title: {
+            display: true,
+            text: 'Eje X (Valores)',  
+            color: '#333'  
+          }
+        },
+        y: {
+          beginAtZero: true,  
+          title: {
+            display: true,
+            text: 'Eje Y (Valores)',  
+            color: '#333'  
+          },
+          ticks: {
+            stepSize: 1  
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          display: true,  
+          position: 'top'  
+        },
+        tooltip: {
+          enabled: true,  
+          backgroundColor: 'rgba(0,0,0,0.7)',  
+          titleColor: '#fff',  
+          bodyColor: '#fff'  
+        }
+      }
+    }
+  });;
+
 window.onload = function() {
     enviaMailDelUsuario();
     enviaCotizacionesAlUsuario();
@@ -29,21 +84,7 @@ function enviarCotizaciones(event) {
     const fromEmail = document.getElementById('from_email_1').value;
     console.log(fromEmail);  // Verificamos que estamos obteniendo el correo correctamente
 
-    // Obtenemos las filas de la tabla de cotizaciones
-    const filas = document.querySelectorAll('#tabla-valores tbody .fila-dolar');
-    
-    // Inicializamos un array vacío para guardar los datos
-    let cotizaciones = [];
-
-    // Recorremos cada fila y obtenemos los datos
-    filas.forEach(fila => {
-        const fecha = fila.querySelector('.fecha').textContent;  // Fecha de la cotización
-        const compra = fila.querySelector('.precio-compra').textContent;  // Precio compra
-        const venta = fila.querySelector('.precio-venta').textContent;  // Precio venta
-
-        // Añadimos los datos a nuestro array
-        cotizaciones.push({ fecha, compra, venta });
-    });
+    creaArrayFechaValores()
 
     // Enviamos el correo con la información de las cotizaciones
     emailjs.send('service_gmail_1', 'template_formulario', { 
@@ -56,64 +97,30 @@ function enviarCotizaciones(event) {
         console.log('FAILED...', error);
         alert('Hubo un error al enviar las cotizaciones.');
     });
+
+    
 }
 
+function armaGrafico(data){
 
-    const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
-    const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
-
-    new Chart("myChart", {
-      type: "line",  
-      data: {
-        labels: xValues,  
-        datasets: [{
-          label: "Evolucion del dolar en pesos argentinos",  
-          backgroundColor: "rgba(0,0,255,0.1)",  
-          borderColor: "rgba(0,0,255,1.0)",  
-          borderWidth: 2,  
-          data: yValues,  
-          fill: true  
-        }]
-      },
-      options: {
-        responsive: true,  
-        maintainAspectRatio: false,  
-        scales: {
-          x: {
-            beginAtZero: true,  
-            title: {
-              display: true,
-              text: 'Eje X (Valores)',  
-              color: '#333'  
-            }
-          },
-          y: {
-            beginAtZero: true,  
-            title: {
-              display: true,
-              text: 'Eje Y (Valores)',  
-              color: '#333'  
-            },
-            ticks: {
-              stepSize: 1  
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            display: true,  
-            position: 'top'  
-          },
-          tooltip: {
-            enabled: true,  
-            backgroundColor: 'rgba(0,0,0,0.7)',  
-            titleColor: '#fff',  
-            bodyColor: '#fff'  
-          }
-        }
-      }
+    // Iterar sobre las cotizaciones y extraer las fechas y los valores de venta
+    data.forEach(cotizacion => { //Iteramos data, que es lo que devolvió el backend
+        xValues.push(cotizacion.fecha);
+        yValues.push(cotizacion.venta);  // O si quieres el valor de compra: cotizacion.compra
     });
 
+    chart.data.labels = xValues; // Nuevos valores para el eje X
+    chart.data.datasets[0].data = yValues; // Nuevos valores para el eje Y
+
+    chart.update(); //Es un metodo del objeto chart que sirve para actualizar el gráfico segun sus datos
+}
+
+function limpiarTabla() {
+    const tabla = document.getElementById("tabla-valores").getElementsByTagName("tbody")[0];
+    while (tabla.rows.length > 0) {
+        tabla.deleteRow(0);  // Elimina la primera fila (repite hasta que no haya más filas)
+    }
+}
 
 function armarFila(fecha, compra, venta){
     const tabla = document.getElementById("tabla-valores").getElementsByTagName("tbody")[0];
@@ -181,16 +188,24 @@ function obtenerDatosForm(event) {
         })
             
         .then(data => {
-            console.log(data)
-
-             for (i=0; i<data.length; i++) {
-              armarFila(data[i].fecha, data[i].compra, data[i].venta)
-            }
-
+            console.log(data);
+            arrayDatos = data;
+            return data;
+        })
+        .then(data => {
+            armarTabla(data);
+            armaGrafico(data);
         })
       } else {
         // Si alguna de las fechas no está seleccionada, mostramos un mensaje
         alert("Por favor, selecciona ambas fechas.");
       }
   };
+
+  function armarTabla(data) {
+    limpiarTabla();
+    for (i=0; i<data.length; i++) {
+        armarFila(data[i].fecha, data[i].compra, data[i].venta)
+    }
+  }
 
