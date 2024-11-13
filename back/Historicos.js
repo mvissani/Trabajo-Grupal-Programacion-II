@@ -1,5 +1,7 @@
 emailjs.init("EoLKxlYYQCCZ-ON8B");
 
+arrayDatos = []
+
 var xValues = []
 var yValues = []
 
@@ -84,7 +86,10 @@ function enviarCotizaciones(event) {
     const fromEmail = document.getElementById('from_email_1').value;
     console.log(fromEmail);  // Verificamos que estamos obteniendo el correo correctamente
 
-    creaArrayFechaValores()
+    let cotizaciones = []
+    arrayDatos.forEach(cotizacion => {
+        cotizaciones.push({fecha: cotizacion.fecha, compra: cotizacion.compra, venta: cotizacion.venta})
+    })
 
     // Enviamos el correo con la información de las cotizaciones
     emailjs.send('service_gmail_1', 'template_formulario', { 
