@@ -1,11 +1,14 @@
-from flask import Flask, request
-from flask_cors import CORS
-import requests
+from flask import Flask, request #framework para poder usar mi servidor, asi funcionan las rutas que creamos
+from flask_cors import CORS #extension del flask. sirve para que el navegador no bloquee las solicitudes al servidor. es por seguridad.
+#el navegador bloque solicitudes entre el front y el back de origenes diferentes, entonces cors permite que funcione y no se bloquee. PARA QUE FLASK ACEPTE SOLICITUDES EXTERNAS
+import requests  #requests: Es una librería de Python que facilita el hacer solicitudes HTTP 
+#(como GET, POST, etc.). En este contexto, se utiliza para realizar solicitudes a APIs externas desde tu servidor Flask.
 from datetime import datetime, timedelta
+#datetime se utiliza para trabajar en formato estandar (de fecha y tiempo) de python; timedelta es para manipular tiempo
+#en este caso se usa para agregar un dia 
 
-
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__) #inicializa mi app web, mi servidor
+CORS(app) #Habilita CORS, estás configurando tu servidor para que acepte solicitudes de cualquier origen
 
 @app.route("/mis-cotizaciones", methods=["GET"]) 
 def get_cotizaciones():
@@ -45,4 +48,3 @@ def get_historico():
     return historico, 200
     
 app.run(debug=True)
-
