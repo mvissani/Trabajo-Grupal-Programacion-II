@@ -98,7 +98,7 @@ function enviarCotizaciones(event) {
 
     // Enviamos el correo con la información de las cotizaciones
     emailjs.send('service_gmail_1', 'template_formulario', { 
-        from_email: fromEmail,  // Enviamos el correo del usuario
+        to_email: fromEmail,  // Enviamos el correo del usuario
         cotizaciones: JSON.stringify(cotizaciones)  // Enviamos las cotizaciones como una cadena JSON
     }).then(function(response) {
         console.log('SUCCESS!', response);
