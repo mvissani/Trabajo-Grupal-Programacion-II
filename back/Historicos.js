@@ -66,11 +66,16 @@ function enviaMailDelUsuario() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         emailjs.sendForm('service_gmail_1', 'template_email_1', this)
-            .then(() => {console.log('SUCCESS!');}, 
-                (error) => {console.log('FAILED...', error);});
+            .then(() => {console.log('SUCCESS!');
+                         alert('El mensaje se envio correctamente!');
+                         }, 
+                (error) => {console.log('FAILED...', error);
+                            alert('Ha ocurrido un error al enviar el mensaje.');
+                });
         });
 
 }
+
 
 function enviaCotizacionesAlUsuario() {
     document.getElementById('contact-form1').addEventListener('submit', function(event) {
@@ -109,7 +114,7 @@ function enviarCotizaciones(event) {
 function armaGrafico(data){
     xValues.length = 0; // Limpiar el array xValues
     yValues.length = 0; // Limpiar el array yValues
-    
+
     // Iterar sobre las cotizaciones y extraer las fechas y los valores de venta
     data.forEach(cotizacion => { //Iteramos data, que es lo que devolvió el backend
         xValues.push(cotizacion.fecha);
@@ -169,6 +174,7 @@ function armarFila(fecha, compra, venta){
 function obtenerDatosForm(event) {
     event.preventDefault();
     
+
     // Función que se ejecuta cuando el usuario cambia la selección
     var selectElement = document.getElementById("tipo-dolar");
     var selectedValueTipoDolar = selectElement.value;  // El valor de la opción seleccionada
