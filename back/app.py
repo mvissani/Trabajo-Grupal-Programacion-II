@@ -18,6 +18,7 @@ def get_cotizaciones():
     #return jsonify({"error": "Moneda no encontrada"}), 404
     
 #/mi-historico?tipo=oficial&fecha_desde=2024-11-10&fecha_hasta=2024-11-10
+
 @app.route("/mi-historico", methods=["GET"]) 
 def get_historico():
     tipo = request.args.get('tipo')

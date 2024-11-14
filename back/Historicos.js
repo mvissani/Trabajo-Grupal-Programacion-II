@@ -18,6 +18,7 @@ var chart = new Chart("myChart", {
         fill: true  
       }]
     },
+
     options: {
       responsive: true,  
       maintainAspectRatio: false,  
@@ -56,6 +57,16 @@ var chart = new Chart("myChart", {
       }
     }
   });;
+
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+
+    // Formatear la fecha en formato YYYY-MM-DD (que es el formato aceptado por el input de tipo date)
+  const formattedDate = yesterday.toISOString().split('T')[0];
+
+    // Establecer el valor máximo en los inputs de fecha
+  document.getElementById('fecha-desde').setAttribute('max', formattedDate);
+  document.getElementById('fecha-hasta').setAttribute('max', formattedDate);
 
 window.onload = function() {
     enviaMailDelUsuario();
