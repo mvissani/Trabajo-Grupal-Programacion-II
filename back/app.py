@@ -5,26 +5,41 @@ import requests  #requests: Es una librería de Python que facilita el hacer sol
 #(como GET, POST, etc.). En este contexto, se utiliza para realizar solicitudes a APIs externas desde tu servidor Flask.
 from datetime import datetime, timedelta
 #datetime se utiliza para trabajar en formato estandar (de fecha y tiempo) de python; timedelta es para manipular tiempo
-#en este caso se usa para agregar un dia 
+#en este caso se usa para agregar un dia
+from index import Moneda, Tipo, Cotizacion
+import json;
 
 app = Flask(__name__) #inicializa mi app web, mi servidor
-CORS(app) #Habilita CORS, estás configurando tu servidor para que acepte solicitudes de cualquier origen
+CORS(app) #Habilita CORS,estás configurando tu servidor para que acepte solicitudes de cualquier origen
 
 @app.route("/mis-cotizaciones", methods=["GET"]) 
 def get_cotizaciones():
    
     response = requests.get("https://dolarapi.com/v1/cotizaciones")
     
-    return response.json(), 200
+    data = response.json()
+    
+    tipos = []
+    
+    for c in data:
+        tipo = Tipo(c['casa'], c['nombre'])
+        cotizacion = Cotizacion(c['fechaActualizacion'], c['compra'], c['venta'])
+        tipo.cargar_cotizacion(cotizacion)
+        tipos.append(tipo)
+        
+    tipos_dict = [tipo.to_dict() for tipo in tipos]
+    
+    print(tipos_dict)
+    
+    return json.dumps(tipos_dict), 200
 
-    #return jsonify({"moneda": "datosdelamoneda"}), 200
-    #return jsonify({"error": "Moneda no encontrada"}), 404
+  
     
 #/mi-historico?tipo=oficial&fecha_desde=2024-11-10&fecha_hasta=2024-11-10
 
 @app.route("/mi-historico", methods=["GET"]) 
 def get_historico():
-    tipo = request.args.get('tipo')
+    tipo_dolar = request.args.get('tipo')
     str_fecha_desde = request.args.get('fecha_desde')
     str_fecha_hasta = request.args.get('fecha_hasta')
     
@@ -35,16 +50,18 @@ def get_historico():
     fecha_desde = datetime.strptime(str_fecha_desde, "%Y-%m-%d")
     fecha_hasta = datetime.strptime(str_fecha_hasta, "%Y-%m-%d")
     
-    current_date = fecha_desde
+    fecha = fecha_desde
     
-    historico=[]
-    while current_date <= fecha_hasta:
-        str_current_date = current_date.strftime("%Y/%m/%d")
-        response = requests.get(f"https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo}/{str_current_date}")
-        print(response.status_code)
-        historico.append(response.json())
-        current_date += timedelta(days=1) 
+    tipo = Tipo(tipo_dolar, "Dólar")
+    while fecha <= fecha_hasta:
+        str_fecha = fecha.strftime("%Y/%m/%d")
+        response = requests.get(f"https://api.argentinadatos.com/v1/cotizaciones/dolares/{tipo_dolar}/{str_fecha}")
+        c = response.json() # Formato de argentinadatos
+        cotizacion = Cotizacion(c["fecha"], c["compra"], c["venta"]) # Convierto a type Cotizacion
+        tipo.cargar_cotizacion(cotizacion) # Cargo la cotizacion que generé en el Tipo
+        fecha += timedelta(days=1) 
     
-    return historico, 200
+    return json.dumps(tipo.to_dict()), 200
     
 app.run(debug=True)
+

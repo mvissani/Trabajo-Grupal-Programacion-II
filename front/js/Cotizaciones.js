@@ -23,10 +23,11 @@ fetch("http://localhost:5000/mis-cotizaciones")
     }
     return response.json()
   })
-    
+
   .then(data => {
+    console.log(data)
     for (i=0; i<data.length; i++) {
-      agregarCotizacion(data[i].nombre, data[i].compra, data[i].venta)
+      agregarCotizacion(data[i].moneda, data[i].cotizaciones[0].valor_compra, data[i].cotizaciones[0].valor_venta)
     }
   })
     
