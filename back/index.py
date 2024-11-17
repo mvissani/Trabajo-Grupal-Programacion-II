@@ -55,16 +55,3 @@ class Cotizacion():
             "valor_venta": self.mostrar_venta()
         }
 
-moneda1 = Tipo("oficial", "dolar")
-moneda2 = Tipo("oficial", "euro")
-moneda3 = Tipo("", "")
-moneda3.cargar_tipo("blue")
-moneda3.cargar_nombre("dolar")
-
-cotizacion1 = Cotizacion("hoy", 900, 800)
-cotizacion2 = Cotizacion("ayer", 700, 600)
-moneda1.cargar_cotizacion(cotizacion1)
-moneda2.cargar_cotizacion(cotizacion2)
-
-print(moneda1)
-print(moneda2)
