@@ -76,14 +76,39 @@ window.onload = function() {
 function enviaMailDelUsuario() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        emailjs.sendForm('service_gmail_1', 'template_email_1', this)
-            .then(() => {console.log('SUCCESS!');
-                         alert('El mensaje se envio correctamente!');
-                         }, 
-                (error) => {console.log('FAILED...', error);
-                            alert('Ha ocurrido un error al enviar el mensaje.');
-                });
+        let from_name = document.getElementById('from_name').value
+        let from_email = document.getElementById('from_email').value
+        let message = document.getElementById('message').value
+        
+        fetch(
+          "http://localhost:5000/contacto/email",
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              "from_name": from_name,
+              "reply_to": from_email,
+              "message": message
+            })
+          }
+        )
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al enviar el email');
+          }
+          return response.text();  // O response.json() si esperas una respuesta JSON
+        })
+        .then(result => {
+          console.log('Respuesta del servidor:', result);
+          alert('El mensaje se envio correctamente!');
+        })
+        .catch(error => {
+          console.error('Hubo un problema con la solicitud fetch:', error);
+          alert('Ha ocurrido un error al enviar el mensaje.');
         });
+      });
 
 }
 
@@ -91,32 +116,45 @@ function enviaMailDelUsuario() {
 function enviaCotizacionesAlUsuario() {
     document.getElementById('contact-form1').addEventListener('submit', function(event) {
         event.preventDefault();  // 
-        enviarCotizaciones(event); 
+        enviarCotizaciones(); 
     });
 }
 
-function enviarCotizaciones(event) {
-    event.preventDefault(); 
-
-    
+function enviarCotizaciones() {
     const fromEmail = document.getElementById('from_email_1').value;
     console.log(fromEmail);  
 
     let cotizaciones = []
     tipoConCotizaciones.cotizaciones.forEach(cotizacion => {
-        cotizaciones.push({fecha: cotizacion.fecha, compra: cotizacion.compra, venta: cotizacion.venta})
+        cotizaciones.push({fecha: cotizacion.actualizacion, compra: cotizacion.valor_compra, venta: cotizacion.valor_venta})
     })
-
     
-    emailjs.send('service_gmail_1', 'template_formulario', { 
-        to_email: fromEmail,  
-        cotizaciones: JSON.stringify(cotizaciones)  
-    }).then(function(response) {
-        console.log('SUCCESS!', response);
-        alert('Cotizaciones enviadas exitosamente!');
-    }, function(error) {
-        console.log('FAILED...', error);
-        alert('Hubo un error al enviar las cotizaciones.');
+    fetch(
+      "http://localhost:5000/mi-historico/email",
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          "to_email": fromEmail,
+          "cotizaciones": cotizaciones
+        })
+      }
+    )
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error al enviar el email');
+      }
+      return response.text();  // O response.json() si esperas una respuesta JSON
+    })
+    .then(result => {
+      console.log('Respuesta del servidor:', result);
+      alert('El mensaje se envio correctamente!');
+    })
+    .catch(error => {
+      console.error('Hubo un problema con la solicitud fetch:', error);
+      alert('Ha ocurrido un error al enviar el mensaje.');
     });
 
     
