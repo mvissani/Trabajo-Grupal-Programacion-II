@@ -21,7 +21,7 @@ class Tipo(Moneda):
     def __str__(self):
         return f'La moneda es {self.nombre}, tipo {self.tipo}. La cotizacion es: compra {self.cotizaciones[0].valor_compra}, venta {self.cotizaciones[0].valor_venta}, actualizacion {self.cotizaciones[0].actualizacion}'
     def cargar_cotizacion(self, cotizacion):
-        self.cotizaciones.append(cotizacion)
+        self.cotizaciones.append(cotizacion) #a este objeto (tipo), en el array cotizaciones agregale una"cotizacion" 
     def to_dict(self):
         return {
             "tipo": self.mostrar_tipo(),
