@@ -1,2 +1,2 @@
 
-./back/__pycache__/
+*.pyc
